@@ -80,11 +80,11 @@ h2{font-family:var(--f-mono);font-weight:500;font-size:11px;letter-spacing:.14em
 <div class="wrap">
   <header>
     <h1>中庭光柱模擬器</h1>
-    <p class="lede">四根霧玻柱、環形 LED 與人流偵測共用同一套控制。切換主題、視角和人流,直接螢幕錄影就能放進提案。</p>
+    <p class="lede">四根柱子、環形 LED 與人流偵測共用同套控制系統。</p>
   </header>
 
   <section class="stage" aria-label="中庭三維預覽">
-    <canvas id="scene" role="img" aria-label="中庭模擬畫面:環形螢幕、四根光柱與展車"></canvas>
+    <canvas id="scene" role="img" aria-label="中庭模擬畫面：環形螢幕、四根光柱與展車"></canvas>
     <div class="hud tl"><b id="hudMode"></b><span id="hudPhase"></span></div>
     <div class="hud tr" id="hudSensor"><i></i><span id="hudSensorText"></span></div>
     <canvas id="mini" width="260" height="260" aria-label="平面圖與感測區"></canvas>
@@ -182,11 +182,11 @@ const GS=5;
 /* ---------- 資料 ---------- */
 const MODES={
   idle:{name:'待機・人流感應',concept:'人多時粒子變密、向上流動；人少時粒子慢慢聚集到柱底。環形螢幕顯示 AI 感知狀態。',ring:'AI 感知狀態與人流指數',cols:'粒子數量與高度隨區域人數變化',tags:['聚散','呼吸']},
-  ev:{name:'電動車起步',concept:'60 秒演出:沉睡、充電、點火、起步、回歸日常。環形螢幕說故事,柱子把能量落到空間。',ring:'電量、車名、速度與車燈光束',cols:'由下往上填滿,光束經過時依序衝起',tags:['填滿','接力','呼吸','聚散']},
-  race:{name:'賽車・圈速',concept:'三個光點沿環形追逐,經過哪根柱子,該柱就向上衝一次。人流越多,速度越快。',ring:'追逐光點與圈數',cols:'光點經過時向上衝',tags:['接力']},
-  camp:{name:'露營・夜空',concept:'暖色營火在柱底,螢火蟲緩緩上升。環形是環繞中庭的夜空與樹影。',ring:'星空、月亮與樹影',cols:'柱底營火與上升的螢火蟲',tags:['呼吸','上升']},
-  h2:{name:'氫能・氣泡',concept:'藍綠氣泡由下往上升,環形與柱子同步,傳達潔淨與零排放。',ring:'氣泡與「零排放」字樣',cols:'氣泡由下往上升',tags:['上升']},
-  data:{name:'數據流',concept:'光點由上往下流,密度隨人流變化,呼應 AI 商場的識別。',ring:'橫向資料流與 AI MALL',cols:'光點由上往下流',tags:['下降']}
+  ev:{name:'電動車起步',concept:'60 秒：Ready、Charge、Torque、GO、Hibernate。環形螢幕說故事，柱子把能量落到空間。',ring:'電量、車名、速度與車燈光束',cols:'由下往上填滿，光束經過時依序衝起',tags:['填滿','接力','呼吸','聚散']},
+  race:{name:'賽車・圈速',concept:'三個光點沿環形追逐，經過哪根柱子，該柱就向上衝一次。人流越多，速度越快。',ring:'追逐光點與圈數',cols:'光點經過時向上衝',tags:['接力']},
+  camp:{name:'露營・夜空',concept:'暖色營火在柱底，螢火蟲緩緩上升。環形是環繞中庭的夜空與樹影。',ring:'星空、月亮與樹影',cols:'柱底營火與上升的螢火蟲',tags:['呼吸','上升']},
+  h2:{name:'氫能・氣泡',concept:'藍綠氣泡由下往上升，環形與柱子同步，傳達潔淨與零排放。',ring:'氣泡與「零排放」字樣',cols:'氣泡由下往上升',tags:['上升']},
+  data:{name:'數據流',concept:'光點由上往下流，密度隨人流，變化呼應 AI 商場的識別。',ring:'橫向資料流與 AI MALL',cols:'光點由上往下流',tags:['下降']}
 };
 const SWATCHES=[{n:'冰藍',c:[61,165,255]},{n:'賽道紅',c:[255,66,78]},{n:'森林綠',c:[52,214,128]},{n:'琥珀橘',c:[255,152,42]},{n:'珍珠白',c:[226,232,246]}];
 const PHASES=[{n:'Ready',a:0,b:10},{n:'Charge',a:10,b:25},{n:'Torque',a:25,b:35},{n:'GO',a:35,b:50},{n:'Hibernate',a:50,b:60}];
